@@ -8,7 +8,7 @@ jobs = [
 ]
 
 jobs.each do |job|
-  scheduler.cron job.cron_expression, &job.method(:run)
+  job.register scheduler
 end
 
 scheduler.join

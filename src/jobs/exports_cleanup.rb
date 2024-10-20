@@ -3,8 +3,9 @@ require_relative "../services/redis/client"
 
 
 class ExportsCleanupJob
-  def cron_expression
-    "* * * * *"
+  def register(scheduler)
+    puts "ExportsCleanupJob registered. Will run every hour."
+    scheduler.cron "* * * * *", &method(:run)
   end
 
   def run
