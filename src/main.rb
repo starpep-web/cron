@@ -1,5 +1,5 @@
-require 'rufus-scheduler'
-require_relative './jobs/exports_cleanup'
+require "rufus-scheduler"
+require_relative "./jobs/exports_cleanup"
 
 scheduler = Rufus::Scheduler.new
 
