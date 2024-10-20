@@ -10,7 +10,7 @@ class ExportsCleanupJob
 
   def register(scheduler)
     @logger.info "ExportsCleanupJob registered. Will run every hour."
-    scheduler.cron "* * * * *", &method(:run)
+    scheduler.cron "0 * * * *", &method(:run)
   end
 
   def run
