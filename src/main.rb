@@ -1,10 +1,10 @@
 require 'rufus-scheduler'
-require './module/jobs/test'
+require_relative './jobs/exports_cleanup'
 
 scheduler = Rufus::Scheduler.new
 
 jobs = [
-  TestJob.new
+  ExportsCleanupJob.new
 ]
 
 jobs.each do |job|
