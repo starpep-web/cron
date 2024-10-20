@@ -1,28 +1,33 @@
 require_relative "../config/app"
 require_relative "../services/redis/client"
+require_relative "../utils/log"
 
 
 class ExportsCleanupJob
+  def initialize
+    @logger = create_logger 'ExportsCleanupJob'
+  end
+
   def register(scheduler)
-    puts "ExportsCleanupJob registered. Will run every hour."
+    @logger.info "ExportsCleanupJob registered. Will run every hour."
     scheduler.cron "* * * * *", &method(:run)
   end
 
   def run
     artifact_task_ids = list_export_artifacts
     if artifact_task_ids.empty?
-      puts "No artifacts found in directory, nothing to remove."
+      @logger.info "No artifacts found in directory, nothing to remove."
       return
     end
 
     stored_task_ids = list_export_redis_tasks
     orphaned_task_ids = artifact_task_ids - stored_task_ids
     if orphaned_task_ids.empty?
-      puts "No orphaned artifacts found, nothing to remove."
+      @logger.info "No orphaned artifacts found, nothing to remove."
       return
     end
 
-    puts "Found #{orphaned_task_ids.size} orphaned artifacts."
+    @logger.info "Found #{orphaned_task_ids.size} orphaned artifacts."
     remove_orphaned_artifacts(orphaned_task_ids)
   end
 
@@ -58,7 +63,7 @@ class ExportsCleanupJob
 
       if File.exist? artifact_filename
         File.delete artifact_filename
-        puts "Deleted #{artifact_name}"
+        @logger.info "Deleted #{artifact_name}"
       end
     end
   end
