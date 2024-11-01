@@ -4,7 +4,7 @@ This repository contains the code for a service meant to run at a schedule. It c
 
 Currently you'll find tasks for:
 
-* Cleaning up the export archives created by the [api-bio](https://github.com/StarPep-Web/api-bio) service.
+* Cleaning up the export archives created by the [api-bio](https://github.com/starpep-web/api-bio) service.
   * This task will run every hour and reads the exports in Redis and compares it to the ones in the exports directory, deleting those in the filesystem that do not exist in Redis anymore.
 
 ## Requirements
@@ -13,15 +13,15 @@ In order to develop for this repository you need:
 
 * [Ruby v3.4](https://www.ruby-lang.org/en/) (but any `v3` should work fine)
 * [Docker](https://www.docker.com/products/docker-desktop/)
-* Have [api-bio](https://github.com/StarPep-Web/api-bio) running locally.
-* Have [env-development](https://github.com/StarPep-Web/env-development) running locally.
+* Have [api-bio](https://github.com/starpep-web/api-bio) running locally.
+* Have [env-development](https://github.com/starpep-web/env-development) running locally.
 
 ## Development
 
 First, clone this repository:
 
 ```bash
-git clone https://github.com/StarPep-Web/cron
+git clone https://github.com/starpep-web/cron
 ```
 
 Install the dependencies:
@@ -61,4 +61,4 @@ docker run -it --rm -e REDIS_URI=redis://localhost:6379 -e TEMP_ARTIFACTS_LOCATI
 
 ## Production
 
-Consider checking this [docker-compose.yml](https://github.com/StarPep-Web/env-production/blob/main/docker-compose.yml) for an example on how to run this image in production.
+Consider checking this [docker-compose.yml](https://github.com/starpep-web/env-production/blob/main/docker-compose.yml) for an example on how to run this image in production.
