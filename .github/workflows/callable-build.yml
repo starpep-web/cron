@@ -9,6 +9,9 @@ on:
       ghcr_username:
         type: string
         required: true
+      ghcr_image_name:
+        type: string
+        required: true
     secrets:
       ghcr_token:
         required: true
