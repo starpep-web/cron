@@ -8,6 +8,6 @@ WORKDIR /opt/app
 COPY --chown=starpep-cron Gemfile* ./
 RUN bundle install
 
-COPY . .
+COPY --chown=starpep-cron . .
 
 CMD ["ruby", "./src/main.rb"]
