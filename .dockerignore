@@ -1,0 +1,9 @@
+# Ignore everything by default.
+*
+
+# Manually add what to use.
+!src
+!Dockerfile
+!Gemfile*
+!LICENSE
+!README.md

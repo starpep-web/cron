@@ -19,6 +19,8 @@ GEM
       fugit (~> 1.1, >= 1.11.1)
     tzinfo (2.0.6)
       concurrent-ruby (~> 1.0)
+    tzinfo-data (1.2024.2)
+      tzinfo (>= 1.0.0)
 
 PLATFORMS
   arm64-darwin-24
@@ -29,6 +31,7 @@ DEPENDENCIES
   logger (~> 1.6, >= 1.6.1)
   redis (~> 5.3)
   rufus-scheduler (~> 3.9, >= 3.9.2)
+  tzinfo-data (~> 1.2024, >= 1.2024.2)
 
 BUNDLED WITH
    2.5.16
